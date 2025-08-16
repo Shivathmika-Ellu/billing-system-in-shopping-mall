@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colorful Shopping Mall</title>
+    <link rel="stylesheet" href="blessy.css">
+</head>
+<body>
+<style>
+    body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background: linear-gradient(135deg, #ff6a00, #ffb347);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.floor {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#mens-floor {
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+#womens-floor {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+#kids-floor {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+}
+
+.floor h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.item {
+    background-color: white;
+    padding: 20px;
+    width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.item:hover {
+    background-color: #ffe0b2;
+    transform: scale(1.05);
+}
+
+.billing {
+    background: linear-gradient(135deg, #cc2b5e, #753a88);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#bill-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#bill-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+h3 {
+    margin-top: 20px;
+    font-size: 2em;
+}
+</style>
+<header>
+    <h1>Welcome to Colorful Shopping Mall</h1>
+    <p>Find the best clothes for Men, Women, and Kids!</p>
+</header>
+
+<section class="floor" id="mens-floor">
+    <h2>1st Floor - Men's Clothing</h2>
+    <div class="items">
+        <div class="item" onclick="addToBill('Men T-Shirt', 500)">Men T-Shirt<br>₹500</div>
+        <div class="item" onclick="addToBill('Men Jeans', 1200)">Men Jeans<br>₹1200</div>
+        <div class="item" onclick="addToBill('Men Jacket', 2500)">Men Jacket<br>₹2500</div>
+    </div>
+</section>
+
+<section class="floor" id="womens-floor">
+    <h2>2nd Floor - Women's Clothing</h2>
+    <div class="items">
+        <div class="item" onclick="addToBill('Women Dress', 1500)">Women Dress<br>₹1500</div>
+        <div class="item" onclick="addToBill('Women Skirt', 800)">Women Skirt<br>₹800</div>
+        <div class="item" onclick="addToBill('Women Top', 600)">Women Top<br>₹600</div>
+    </div>
+</section>
+
+<section class="floor" id="kids-floor">
+    <h2>3rd Floor - Kids' Clothing</h2>
+    <div class="items">
+        <div class="item" onclick="addToBill('Kids T-Shirt', 300)">Kids T-Shirt<br>₹300</div>
+        <div class="item" onclick="addToBill('Kids Shorts', 400)">Kids Shorts<br>₹400</div>
+        <div class="item" onclick="addToBill('Kids Jacket', 700)">Kids Jacket<br>₹700</div>
+    </div>
+</section>
+
+<section class="billing">
+    <h2>Billing Section</h2>
+    <ul id="bill-list">
+        <!-- Items will appear here -->
+    </ul>
+    <h3>Total: ₹<span id="total">0</span></h3>
+</section>
+
+<script>
+    let total = 0;
+    function addToBill(itemName, price) {
+        const billList = document.getElementById('bill-list');
+        const listItem = document.createElement('li');
+        listItem.textContent = ${itemName} - ₹${price};
+        billList.appendChild(listItem);
+        total += price;
+        document.getElementById('total').textContent = total;
+    }
+</script>
+
+</body>
+</html>
